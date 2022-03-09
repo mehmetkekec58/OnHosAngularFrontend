@@ -1,0 +1,44 @@
+<mat-sidenav-container  class="sidenav-container">
+
+  <mat-sidenav  style="background-color:white;" #drawer class="sidenav" fixedInViewport [attr.role]="'dialog'"
+    [mode]="'side'" [opened]="$drawer==true">
+
+
+
+    <mat-nav-list>
+      <a mat-list-item href="#">
+        <mat-icon>perm_identity</mat-icon> Profil
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>history</mat-icon> Geçmiş
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>settings</mat-icon> Ayarlar
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon>exit_to_app</mat-icon> Çıkış Yap
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar aa" color="primary">
+
+      <mat-icon (click)="click()">menu</mat-icon>
+      <span>OnHos</span>
+      <span class="example-spacer"></span>
+
+
+
+      <div class="example-button-row">
+        <button *ngIf="isLogin==true" mat-raised-button routerLink="/login" color="accent">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-raised-button routerLink="/login" color="accent">Giriş Yap</button>
+        <button mat-raised-button routerLink="/register" color="accent">Kaydol</button>
+
+      </div>
+    </mat-toolbar>
+    <app-home-page class="home-page"></app-home-page>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
