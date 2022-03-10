@@ -1,4 +1,4 @@
-<mat-sidenav-container  class="sidenav-container">
+<mat-sidenav-container   class="sidenav-container ">
 
   <mat-sidenav  style="background-color:white;" #drawer class="sidenav" fixedInViewport [attr.role]="'dialog'"
     [mode]="'side'" [opened]="$drawer==true">
@@ -7,16 +7,19 @@
 
     <mat-nav-list>
       <a mat-list-item href="#">
-        <mat-icon>perm_identity</mat-icon> Profil
+        <mat-icon class="OnHosDrawerMenuIcon">perm_identity</mat-icon> <span class="OnHosDrawerMenuYazi">Profil</span>
       </a>
       <a mat-list-item href="#">
-        <mat-icon>history</mat-icon> Geçmiş
+        <mat-icon class="OnHosDrawerMenuIcon">history</mat-icon> <span class="OnHosDrawerMenuYazi">Geçmiş</span>
       </a>
       <a mat-list-item href="#">
-        <mat-icon>settings</mat-icon> Ayarlar
+        <mat-icon  class="OnHosDrawerMenuIcon">description</mat-icon> <span class="OnHosDrawerMenuYazi">Okuma Listesi</span>
       </a>
       <a mat-list-item href="#">
-        <mat-icon>exit_to_app</mat-icon> Çıkış Yap
+        <mat-icon  class="OnHosDrawerMenuIcon">settings</mat-icon> <span class="OnHosDrawerMenuYazi">Ayarlar</span>
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon  class="OnHosDrawerMenuIcon">exit_to_app</mat-icon> <span class="OnHosDrawerMenuYazi">Çıkış Yap</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -24,7 +27,7 @@
     <mat-toolbar class="toolbar aa" color="primary">
 
       <mat-icon (click)="click()">menu</mat-icon>
-      <span>OnHos</span>
+      <span class="OnHosYazi">OnHos</span>
       <span class="example-spacer"></span>
 
 
@@ -38,7 +41,8 @@
 
       </div>
     </mat-toolbar>
-    <app-home-page class="home-page"></app-home-page>
+    <router-outlet></router-outlet>
+    <!-- <app-home-page class="home-page"></app-home-page> -->
 
   </mat-sidenav-content>
 </mat-sidenav-container>

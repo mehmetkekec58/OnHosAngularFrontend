@@ -8,7 +8,10 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  {path:"",component:HomePageComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

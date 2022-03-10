@@ -28,6 +28,7 @@ import { DoctorsRecommendedForYouComponent } from './components/doctors-recommen
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { PopularArticleComponent } from './components/popular-article/popular-article.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CommonDiseasesInThisSeasonComponent } from './components/common-diseases-in-this-season/common-diseases-in-this-season.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     DoctorsRecommendedForYouComponent,
     ArticleListComponent,
     PopularArticleComponent,
-    FooterComponent
+    FooterComponent,
+    CommonDiseasesInThisSeasonComponent
 
   ],
   imports: [
