@@ -12,10 +12,11 @@ export class NaviComponent {
 
 $drawer:boolean=false;
 isLogin=false;
-  constructor() {}
-click(){
+  constructor() {
+
+  }
+drawerOpenAndClose(){
   this.$drawer=!this.$drawer
- // console.log("first")
 }
 scroll(){
 

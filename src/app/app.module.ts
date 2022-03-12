@@ -29,7 +29,9 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { PopularArticleComponent } from './components/popular-article/popular-article.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonDiseasesInThisSeasonComponent } from './components/common-diseases-in-this-season/common-diseases-in-this-season.component';
-
+import {MatFormFieldModule,MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { DrawerMenuListComponent } from './components/drawer-menu-list/drawer-menu-list.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { CommonDiseasesInThisSeasonComponent } from './components/common-disease
     ArticleListComponent,
     PopularArticleComponent,
     FooterComponent,
-    CommonDiseasesInThisSeasonComponent
+
+    CommonDiseasesInThisSeasonComponent,
+     DrawerMenuListComponent
 
   ],
   imports: [
@@ -63,9 +67,12 @@ import { CommonDiseasesInThisSeasonComponent } from './components/common-disease
     MatCardModule,
     MatMenuModule,
     MatTabsModule,
+    MatFormFieldModule,
+    RouterModule,
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
   ],
   bootstrap: [AppComponent]
 })

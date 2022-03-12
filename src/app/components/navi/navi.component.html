@@ -3,46 +3,31 @@
   <mat-sidenav  style="background-color:white;" #drawer class="sidenav" fixedInViewport [attr.role]="'dialog'"
     [mode]="'side'" [opened]="$drawer==true">
 
+<app-drawer-menu-list></app-drawer-menu-list>
 
 
-    <mat-nav-list>
-      <a mat-list-item href="#">
-        <mat-icon class="OnHosDrawerMenuIcon">perm_identity</mat-icon> <span class="OnHosDrawerMenuYazi">Profil</span>
-      </a>
-      <a mat-list-item href="#">
-        <mat-icon class="OnHosDrawerMenuIcon">history</mat-icon> <span class="OnHosDrawerMenuYazi">Geçmiş</span>
-      </a>
-      <a mat-list-item href="#">
-        <mat-icon  class="OnHosDrawerMenuIcon">description</mat-icon> <span class="OnHosDrawerMenuYazi">Okuma Listesi</span>
-      </a>
-      <a mat-list-item href="#">
-        <mat-icon  class="OnHosDrawerMenuIcon">settings</mat-icon> <span class="OnHosDrawerMenuYazi">Ayarlar</span>
-      </a>
-      <a mat-list-item href="#">
-        <mat-icon  class="OnHosDrawerMenuIcon">exit_to_app</mat-icon> <span class="OnHosDrawerMenuYazi">Çıkış Yap</span>
-      </a>
-    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="toolbar aa" color="primary">
 
-      <mat-icon (click)="click()">menu</mat-icon>
-      <span class="OnHosYazi">OnHos</span>
+      <mat-icon (click)="drawerOpenAndClose()">menu</mat-icon>
+      <span routerLink="/" class="OnHosYazi">OnHos</span>
       <span class="example-spacer"></span>
 
 
 
       <div class="example-button-row">
-        <button *ngIf="isLogin==true" mat-raised-button routerLink="/login" color="accent">
+        <button *ngIf="isLogin==true" mat-raised-button  color="accent">
           <mat-icon>search</mat-icon>
         </button>
-        <button mat-raised-button routerLink="/login" color="accent">Giriş Yap</button>
-        <button mat-raised-button routerLink="/register" color="accent">Kaydol</button>
+        <button *ngIf="isLogin==true" mat-raised-button  color="accent">
+          <mat-icon>attach_money</mat-icon> <span style="font-size: large;">20</span>
+        </button>
+        <button *ngIf="isLogin==false" mat-raised-button routerLink="/login" color="accent">Giriş Yap</button>
+        <button  *ngIf="isLogin==false" mat-raised-button routerLink="/register" color="accent">Kaydol</button>
 
       </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <!-- <app-home-page class="home-page"></app-home-page> -->
-
   </mat-sidenav-content>
 </mat-sidenav-container>
