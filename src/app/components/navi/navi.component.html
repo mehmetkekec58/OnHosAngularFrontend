@@ -7,17 +7,45 @@
 
 
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="ff">
     <mat-toolbar class="toolbar aa" color="primary">
 
       <mat-icon (click)="drawerOpenAndClose()">menu</mat-icon>
       <span routerLink="/" class="OnHosYazi">OnHos</span>
       <span class="example-spacer"></span>
 
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <br/>
+	<div class="row justify-content-center" *ngIf="$arama==true">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <div class="card card-sm bb">
+                                <div class="card-body row no-gutters align-items-center">
 
+
+                                  <div class="col-auto">
+                                    <i (click)="aramaIcon()" class="text-body search-close-icon"><mat-icon class="search-close-icon">close</mat-icon></i>
+                                </div>
+                                    <!--end of col-->
+                                    <div class="col">
+
+                                       <app-search></app-search>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button mat-raised-button color="accent" type="submit"><mat-icon>search</mat-icon></button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
 
       <div class="example-button-row">
-        <button *ngIf="isLogin==true" mat-raised-button  color="accent">
+
+        <button *ngIf="$arama==false" (click)="aramaIcon()" mat-raised-button  color="accent">
           <mat-icon>search</mat-icon>
         </button>
         <button *ngIf="isLogin==true" mat-raised-button  color="accent">

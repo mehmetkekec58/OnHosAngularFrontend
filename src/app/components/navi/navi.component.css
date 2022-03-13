@@ -38,3 +38,16 @@
 .OnHosDrawerMenuIcon{
   margin-right: 3px;
 }
+
+.ff::-webkit-scrollbar {
+  display: none;
+}
+.search-close-icon{
+  color: rgb(161, 0, 0);
+}
+.bb{
+  background-color: white;
+  margin-top: 55px;
+  border-radius: 30px;
+  border: 0px solid;
+}

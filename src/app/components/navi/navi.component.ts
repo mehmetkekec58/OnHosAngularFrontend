@@ -11,14 +11,18 @@ export class NaviComponent {
 
 
 $drawer:boolean=false;
-isLogin=false;
+isLogin:boolean=false;
+$arama:boolean=true;
   constructor() {
 
   }
 drawerOpenAndClose(){
   this.$drawer=!this.$drawer
 }
-scroll(){
-
+aramaIcon(){
+this.$arama=!this.$arama
 }
+
+
+
 }

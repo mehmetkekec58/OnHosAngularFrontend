@@ -1,3 +1,4 @@
+import { OkumaListesiComponent } from './components/okuma-listesi/okuma-listesi.component';
 import { PayComponent } from './components/pay/pay.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleAddComponent } from './components/article-add/article-add.component';
@@ -19,11 +20,14 @@ const routes: Routes = [
   {path:"profile/update",pathMatch:"full",component:ProfileUpdateComponent},
   {path:"profile/:userName",component:ProfileComponent},
   {path:"article/add",pathMatch:"full", component:ArticleAddComponent},
+  {path:"article/update",pathMatch:"full", component:ArticleAddComponent},
+  {path:"article/:id/:text", component:ArticleComponent},
   {path:"article/:id", component:ArticleComponent},
   {path:"chat", component:ChatComponent},
   {path:"chat/:userName", component:ChatComponent},
   {path:"history", component:HistoryComponent},
-  {path:"pay", component:PayComponent}
+  {path:"pay", component:PayComponent},
+  {path:"readlist", component:OkumaListesiComponent}
 ];
 
 @NgModule({

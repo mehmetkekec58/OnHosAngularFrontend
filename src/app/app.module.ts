@@ -2,8 +2,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-import {FormsModule, ReactiveFormsModule} from "@angular/forms"
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,16 +22,27 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { DoctorListComponent } from './components/doctor-list/doctor-list.component';
 import { DoctorsRecommendedForYouComponent } from './components/doctors-recommended-for-you/doctors-recommended-for-you.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { PopularArticleComponent } from './components/popular-article/popular-article.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonDiseasesInThisSeasonComponent } from './components/common-diseases-in-this-season/common-diseases-in-this-season.component';
-import {MatFormFieldModule,MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { DrawerMenuListComponent } from './components/drawer-menu-list/drawer-menu-list.component';
 import { RouterModule } from '@angular/router';
+import { MatChipsModule } from '@angular/material/chips';
+import { VideoComponent } from './components/profil-icerikler/video/video.component';
+import { PostsComponent } from './components/profil-icerikler/posts/posts.component';
+import { ArticleProfileComponent } from './components/profil-icerikler/article-profile/article-profile.component';
+import { ArticleComponent } from './components/article/article.component';
+import { HistoryComponent } from './components/history/history.component';
+import { OkumaListesiComponent } from './components/okuma-listesi/okuma-listesi.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +55,15 @@ import { RouterModule } from '@angular/router';
     ArticleListComponent,
     PopularArticleComponent,
     FooterComponent,
-
     CommonDiseasesInThisSeasonComponent,
-     DrawerMenuListComponent
+    DrawerMenuListComponent,
+    VideoComponent,
+    PostsComponent,
+    ArticleProfileComponent,
+    ArticleComponent,
+    HistoryComponent,
+    OkumaListesiComponent,
+    SearchComponent,
 
   ],
   imports: [
@@ -69,10 +86,14 @@ import { RouterModule } from '@angular/router';
     MatTabsModule,
     MatFormFieldModule,
     RouterModule,
+    MatChipsModule,
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    MatInputModule,
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+   // { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
   ],
   bootstrap: [AppComponent]
 })
