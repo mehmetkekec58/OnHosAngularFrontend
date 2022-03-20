@@ -1,63 +1,72 @@
 <div class="on-hos-container">
-<div class="col-md-12">
+  <div *ngIf="isThereUser == true  && isLoading==true" class="col-md-12">
 
 
-  <div class="card-body little-profile text-center">
-    <div class="pro-img"><img
-        src="https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg" alt="user">
-    </div>
-    <h3>
-      <mat-card-title>Hasan Ülker</mat-card-title>
-      <mat-icon class="verify-icon">verified_user</mat-icon>
-    </h3>
-    <p>Kalp Hastalıkları Uzmanı</p>
-    <div class="example-button-row">
-      <button mat-raised-button color="accent">Takip Et</button>
-      <button mat-raised-button color="accent">
-        <mat-icon>question_answer</mat-icon> Soru Sor
-      </button>
-      <button routerLink="../update" mat-raised-button color="accent">Profili Düzenle</button>
-    </div>
-    <div class="row text-center m-t-20">
-      <div class="col-lg-4 col-md-4 m-t-20">
-        <h3 class="m-b-0 font-light">15</h3><small>Yazı</small>
+    <div class="card-body little-profile text-center">
+      <div class="pro-img"><img src={{profileDetails.profilePhoto.url}} alt="user">
       </div>
-      <div class="col-lg-4 col-md-4 m-t-20">
-        <h3 class="m-b-0 font-light">43 B</h3><small>Takipçi</small>
+      <h3>
+        <mat-card-title>{{profileDetails.firstName}} {{profileDetails.lastName}} <mat-icon class="verify-icon">verified_user</mat-icon></mat-card-title>
+
+
+        <span style="font-size: medium;">@{{profileDetails.userName}}</span>
+
+      </h3>
+      <p>{{branch.branchName}}</p>
+      <div class="example-button-row">
+        <button mat-raised-button color="accent">Takip Et</button>
+        <button mat-raised-button color="accent">
+          <mat-icon>question_answer</mat-icon> Soru Sor
+        </button>
+        <button routerLink="../update" mat-raised-button color="accent">Profili Düzenle</button>
       </div>
-      <div class="col-lg-4 col-md-4 m-t-20">
-        <h3 class="m-b-0 font-light">3</h3><small>Video</small>
+      <div class="row text-center m-t-20">
+        <div class="col-lg-4 col-md-4 m-t-20">
+          <h3 class="m-b-0 font-light">{{numberOfArticles}}</h3><small>Yazı</small>
+        </div>
+        <div class="col-lg-4 col-md-4 m-t-20">
+          <h3 class="m-b-0 font-light">{{numberOfFollowers}}</h3><small>Takipçi</small>
+        </div>
+        <div class="col-lg-4 col-md-4 m-t-20">
+          <h3 class="m-b-0 font-light">{{numberOfVideos}}</h3><small>Video</small>
+        </div>
       </div>
     </div>
+
+    <mat-tab-group color="accent" mat-align-tabs="center">
+      <mat-tab label="Gönderiler">
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+          Gönderiler
+        </ng-template>
+        <app-posts></app-posts>
+      </mat-tab>
+      <mat-tab label="Yazılar">
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">
+            <mat-icon>description</mat-icon>
+          </mat-icon>
+          Yazılar
+        </ng-template>
+        <app-article-profile *ngIf="isLoading==true" [profileDetails]="profileDetails" branch={{branch.branchName}}></app-article-profile>
+      </mat-tab>
+      <mat-tab label="Videolar">
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">
+            <mat-icon>video_library</mat-icon>
+          </mat-icon>
+          Videolar
+        </ng-template>
+        <app-video *ngIf="isLoading==true" [profileDetails]="profileDetails" branch={{branch.branchName}}></app-video>
+      </mat-tab>
+
+    </mat-tab-group>
   </div>
-
-  <mat-tab-group color="accent" mat-align-tabs="center">
-    <mat-tab label="Gönderiler">
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-        Gönderiler
-      </ng-template>
-   <app-posts></app-posts>
-    </mat-tab>
-    <mat-tab label="Yazılar">
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">
-          <mat-icon>description</mat-icon>
-        </mat-icon>
-        Yazılar
-      </ng-template>
-     <app-article-profile></app-article-profile>
-    </mat-tab>
-    <mat-tab label="Videolar">
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">
-          <mat-icon>video_library</mat-icon>
-        </mat-icon>
-        Videolar
-      </ng-template>
-    <app-video></app-video>
-    </mat-tab>
-
-  </mat-tab-group>
+<h1 style="text-align: center;" *ngIf="isThereUser == false"><app-page-not-found message={{hataMessage}}></app-page-not-found></h1>
 </div>
+
+<div class="mmm" *ngIf="isLoading==false">
+  <div class="spinner-border text-warning" role="status">
+    <span class="visually-hidden">Yükleniyor...</span>
+  </div>
 </div>

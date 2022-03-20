@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ProfileDetailModel } from 'src/app/models/profileDetailModel';
+import { VideoService } from './../../../services/video.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { VideoModel } from 'src/app/models/videoModel';
 
 @Component({
   selector: 'app-video',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-
-  constructor() { }
-
+videos:VideoModel[]=[]
+videoTags:string[]=[]
+  constructor(private videoService:VideoService) { }
+@Input() profileDetails:ProfileDetailModel
+@Input() branch:string=""
   ngOnInit(): void {
+    this.getAllByUserName(this.profileDetails.userName);
   }
-
+getAllByUserName(userName:string){
+  this.videoService.getAllByUserName(userName).subscribe(response=>{
+  this.videos=response.data
+  response.data.forEach(e=>{
+    this.videoTags=e.tag.split(",");
+  })
+  })
+}
 }

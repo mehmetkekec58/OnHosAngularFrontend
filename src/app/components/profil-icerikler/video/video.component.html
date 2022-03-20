@@ -1,43 +1,34 @@
 <div class="article-scroll-right">
 <div class="row pt-1 mt-30">
-  <div class="col-lg-4 col-sm-6 mb-30 pb-5 ">
+  <div class="col-lg-4 col-sm-6 mb-30 pb-5 " *ngFor="let video of videos">
 <mat-card class="example-card card">
 
   <mat-card-header>
-    <div mat-card-avatar style="background-image: url('https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg');
-    background-size: cover;"></div>
-    <mat-card-title>Hasan Ülker <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
-    <mat-card-subtitle>Kalp Damar Hastalıkları Uzmanı</mat-card-subtitle>
+    <img mat-card-avatar src={{profileDetails.profilePhoto.url}}/>
+    <mat-card-title>{{profileDetails.firstName}} {{profileDetails.lastName}} <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
+    <mat-card-subtitle>@{{profileDetails.userName}} / {{branch}}</mat-card-subtitle>
   </mat-card-header>
 
 
-  <video mat-card-image="matCardImageSmall" controls controlsList="nodownload" poster="http://drmustafasener.com/2018/10/kanser-hucresi-vucutta-nasil-beslenir.jpeg">
-    <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+  <video mat-card-image="matCardImageSmall" controls controlsList="nodownload" poster={{video.kapakFoto}}>
+    <source src={{video.videoUrl}} type="video/mp4">
   Your browser does not support the video tag.
   </video>
   <mat-card-content>
 
     <div style="text-align: center;">
-      <h3 style="font-weight: bold;">Kanser</h3>
+      <h3 style="font-weight: bold;">{{video.title}}</h3>
     </div>
     <p>
-      Kelime anlamı olarak kanser, bir organ veya dokudaki hücrelerin düzensiz olarak bölünüp çoğalmasıyla beliren kötü urlara denir
-    </p>
+     {{video.text}}  </p>
     <div>
     <span style="margin-left: 5px;"><b>Etiketler:</b></span>
-    <mat-chip-list aria-label="Dog selection">
-      <mat-chip>
+    <mat-chip-list aria-label="Dog selection" >
+      <mat-chip *ngFor="let tag of videoTags">
 
-       kanser
+       {{tag}}
       </mat-chip>
-      <mat-chip color="primary">
 
-        Ölümcül Hastalık
-      </mat-chip>
-      <mat-chip color="accent">
-
-        Kanser nedir
-      </mat-chip>
     </mat-chip-list>
   </div>
   </mat-card-content>

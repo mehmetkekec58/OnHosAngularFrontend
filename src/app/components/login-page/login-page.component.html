@@ -1,0 +1,16 @@
+<div class="login-box">
+  <h2 class="giris"><span style="color: black;">Giriş</span></h2>
+  <form [formGroup]="loginForm">
+
+    <div class="user-box">
+      <input formControlName="email" type="text" name="" required="">
+      <label>E-posta</label>
+    </div>
+    <div class="user-box">
+      <input  formControlName="password" type="password" name="" required="">
+      <label>Şifre</label>
+    </div>
+    <button mat-raised-button color="accent" (click)="login()">Giriş Yap</button>
+  </form>
+
+</div>

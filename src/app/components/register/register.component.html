@@ -1,36 +1,27 @@
 <div class="login-box">
   <h2 class="kaydol"><span style="color: black;">Kayıt Ol</span></h2>
-  <form>
+  <form [formGroup]="registerForm">
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input formControlName="firstName" type="text" name="" required="">
       <label>Ad</label>
     </div>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input formControlName="lastName" type="text" name="" required="">
       <label>Soyad</label>
     </div>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input formControlName="userName" type="text" name="" required="">
       <label>Kullanıcı Adı</label>
     </div>
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input formControlName="email" type="text" name="" required="">
       <label>E-posta</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" required="">
+      <input formControlName="password" type="password" name="" required="">
       <label>Şifre</label>
     </div>
-    <div class="user-box">
-      <input type="password" name="" required="">
-      <label>Şifre Tekrar</label>
-    </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Kayıt Ol
-    </a>
+
+  <button mat-raised-button color="accent" (click)="register()">Kayıt Ol</button>
   </form>
 </div>

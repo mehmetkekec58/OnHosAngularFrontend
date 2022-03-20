@@ -1,3 +1,6 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 import { OkumaListesiComponent } from './components/okuma-listesi/okuma-listesi.component';
 import { PayComponent } from './components/pay/pay.component';
 import { ArticleComponent } from './components/article/article.component';
@@ -7,15 +10,13 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ProfileUpdateComponent } from './components/profile-update/profile-update.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
 
 const routes: Routes = [
 
   {path:"" ,pathMatch:"full", component:HomePageComponent},
-  {path:"login",component:LoginComponent},
+  {path:"login",component:LoginPageComponent},
   {path:"register",component:RegisterComponent},
   {path:"profile/update",pathMatch:"full",component:ProfileUpdateComponent},
   {path:"profile/:userName",component:ProfileComponent},

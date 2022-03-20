@@ -22,4 +22,14 @@ export class LocalStorageService {
       return false;
 
   }
+
+  setLocalStorage(name:string,data:any){
+    localStorage.setItem(name,data);
+  }
+  getLocalStorage(name:string){
+    return localStorage.getItem(name);
+  }
+  deleteLocalStorage(name:string){
+    localStorage.removeItem(name);
+  }
 }

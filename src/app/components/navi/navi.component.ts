@@ -12,7 +12,7 @@ export class NaviComponent {
 
 $drawer:boolean=false;
 isLogin:boolean=false;
-$arama:boolean=true;
+$arama:boolean=false;
   constructor() {
 
   }

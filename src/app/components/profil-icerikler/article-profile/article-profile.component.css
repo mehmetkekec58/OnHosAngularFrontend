@@ -12,8 +12,9 @@
 div.article-scroll-right{
 overflow-x: hidden;
 }
-.card{
+.avatar{
 
+  background-size: cover;
 
 }
 
