@@ -6,9 +6,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Screenshots
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(169).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(170).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(171).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(172).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(173).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(174).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(175).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(176).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(177).png)
+![alt text](https://github.com/mehmetkekec58/OnHosAngularFrontend/blob/master/screenshots/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(178).png)
+
 
 ## Build
 
