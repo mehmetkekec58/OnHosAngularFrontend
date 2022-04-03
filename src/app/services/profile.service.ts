@@ -11,13 +11,21 @@ import { ClaimModel } from '../models/claimModel';
   providedIn: 'root'
 })
 export class ProfileService {
-  ApiUrl = `${environment.apiUrl}Users/`;
+  apiUrl = `${environment.apiUrl}Users/`;
   constructor(private httpClient: HttpClient) { }
 
   getProfileDetailsByUserName(userName: string) {
-    return this.httpClient.get<SingleResponseModel<ProfileDetailModel>>(`${this.ApiUrl}profiledetailbyusername?userName=${userName}`)
+    return this.httpClient.get<SingleResponseModel<ProfileDetailModel>>(`${this.apiUrl}profiledetailbyusername?userName=${userName}`)
   }
   getClaimsByUserName(userName: string) {
-    return this.httpClient.get<ListResponseModel<ClaimModel>>(`${this.ApiUrl}getclaimnamebyusername?userName=${userName}`);
+    return this.httpClient.get<ListResponseModel<ClaimModel>>(`${this.apiUrl}getclaimnamebyusername?userName=${userName}`);
+  }
+  profileUpdate(fileToUpload: File, profileUpdateModel:any){
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    return this.httpClient.post(`${this.apiUrl}update`,{formData,profileUpdateModel})
+  }
+  getUserNameByToken(){
+    return this.httpClient.get<SingleResponseModel<string>>(`${this.apiUrl}getusernamebytoken`)
   }
 }

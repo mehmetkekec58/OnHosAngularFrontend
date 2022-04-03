@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from './../../services/local-storage.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-drawer-menu-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrawerMenuListComponent implements OnInit {
 
-  constructor() { }
+  @Output() outputFromChild : EventEmitter<string> = new EventEmitter();
+
+  constructor(private localStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
   }
-
+  cikisYap(){
+    this.localStorageService.deleteLocalStorageToken();
+    this.outputFromChild.emit("false");
+  }
 }

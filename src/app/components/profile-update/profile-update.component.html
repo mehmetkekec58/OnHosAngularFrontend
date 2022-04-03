@@ -9,7 +9,7 @@
 				<hr>
 			</div>
 			<!-- Form START -->
-			<form class="file-upload">
+			<form class="file-upload" enctype="multipart/form-data" [formGroup]="profileUpdateForm">
 				<div class="row mb-5 gx-5">
 					<!-- Contact detail -->
 					<div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -19,33 +19,26 @@
 								<!-- First Name -->
 								<div class="col-md-6">
 									<label class="form-label">Ad </label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="deneme">
+									<input formControlName="firstName" type="text" class="form-control" placeholder="" aria-label="First name" value="deneme">
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
 									<label class="form-label">Soyad </label>
-									<input type="text" class="form-control" placeholder="" aria-label="Last name" value="hey">
+									<input formControlName="lastName" type="text" class="form-control" placeholder="" aria-label="Last name" value="hey">
 								</div>
 								<!-- Phone number -->
-                <div class="col-md-6">
-                <label class="form-label">Kullanıcı Adı </label>
-                <div class="input-group flex-nowrap">
 
-                  <span class="input-group-text" id="addon-wrapping">@</span>
-                  <input type="text" class="form-control" placeholder="" value="denemehey" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-              </div>
 								<!-- Mobile number -->
 
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">E-posta </label>
-									<input type="email" class="form-control" id="inputEmail4" value="example@onhos.com">
+									<input  type="email" class="form-control" id="inputEmail4" value="example@onhos.com">
 								</div>
 								<!-- Skype -->
                 <div class="col-md-6">
 									<label class="form-label">Hakkında </label>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                  <textarea formControlName="aboutMe" class="form-control" aria-label="With textarea"></textarea>
 								</div>
 							</div> <!-- Row END -->
 						</div>
@@ -54,7 +47,7 @@
 					<div class="col-xxl-4">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
-								<h4 class="mb-4 mt-0">Profil Fotoğrafı</h4>
+								<h4 class="mb-4 mt-0">Profil Fotoğrafı Yükle</h4>
 								<div class="text-center">
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
@@ -62,7 +55,7 @@
 									</div>
 									<!-- Button -->
                   <label class="btn btn-success-soft btn-block" for="customFile">Yükle</label>
-									<input type="file" id="customFile" name="file" hidden="">
+									<input formControlName="file" type="file" id="customFile" name="file" hidden="" >
 
 									<button type="button" class="btn btn-danger-soft">Kaldır</button>
 									<!-- Content -->
@@ -78,7 +71,7 @@
 					<div class="col-xxl-6 mb-5 mb-xxl-0">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
-								<h4 class="mb-4 mt-0">Sosyal Medya</h4>
+								<h4 class="mb-4 mt-0">Sosyal Medya </h4>
 								<!-- Facebook -->
 								<div class="col-md-6">
 									<label class="form-label"><i class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook </label>
@@ -137,7 +130,7 @@
 				<!-- button -->
 				<div class="gap-3 d-md-flex justify-content-md-end text-center">
 					<button type="button" (click)="back()" class="btn btn-danger btn-lg">İptal</button>
-					<button type="button" class="btn btn-warning btn-lg">Profili Güncelle</button>
+					<button type="button" (click)="update()" class="btn btn-warning btn-lg">Profili Güncelle</button>
 				</div>
 			</form> <!-- Form END -->
 		</div>

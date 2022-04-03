@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { VideoService } from './../../services/video.service';
 import { BranchService } from './../../services/branch.service';
 import { FollowService } from './../../services/follow.service';
@@ -24,9 +25,10 @@ export class ProfileComponent implements OnInit {
   numberOfFollowers: number = 0;
   numberOfArticles: number = 0;
   numberOfVideos: number = 0;
-  branch:BranchModel={id:0,userName:"",branchName:""};
-isLoading:boolean=false;
-  constructor(private videoService:VideoService,private branchService:BranchService,private profileService: ProfileService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, private followService: FollowService, private articleService: ArticleService) {
+  branch: BranchModel = { id: 0, userName: "", branchName: "" };
+  isLoading: boolean = false;
+  kendisiMi: boolean = false;
+  constructor(private videoService: VideoService,private localStorageService:LocalStorageService, private branchService: BranchService, private profileService: ProfileService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, private followService: FollowService, private articleService: ArticleService) {
 
 
   }
@@ -39,15 +41,19 @@ isLoading:boolean=false;
 
     })
   }
-  getProfileDetailsByUserName(userName: string) {
+   getProfileDetailsByUserName(userName: string) {
     this.profileService.getProfileDetailsByUserName(userName).subscribe(response => {
       if (response.success === true) {
         this.profileDetails = response.data;
         this.getNumberOfFollowersByUserName(userName);
         this.getNumberOfArticlesByUserName(userName);
         this.getNumberOfVideoByUserName(userName);
+        if (this.localStorageService.isThereToken()) {
+          this.getUserNameByToken(userName)
+        }
         this.getBranchByUserName(userName);
-        this.isLoading=true;
+
+
       } else {
         this.isThereUser = false;
 
@@ -58,10 +64,9 @@ isLoading:boolean=false;
       this.hataMessage = error.error.message;
       this.openSnackBar(userName, error.error.message);
     })
-  }
-  getHaveClaimsWithUserName(userName: string) {
 
   }
+
   openSnackBar(veri: string, metin: string) {
     this.snackBar.open(`${veri} ${metin}`, "Tamam", {
       duration: 5 * 1000,
@@ -80,17 +85,27 @@ isLoading:boolean=false;
 
     })
   }
-  getBranchByUserName(userName:string){
-this.branchService.getBranchByUserName(userName).subscribe(response=>{
-  if (response.data!=null) {
-    this.branch=response.data
+  getBranchByUserName(userName: string) {
+    this.branchService.getBranchByUserName(userName).subscribe(response => {
+      if (response.data != null) {
+        this.branch = response.data
+      }
+      this.isLoading = true;
+    })
   }
+  getNumberOfVideoByUserName(userName: string) {
+    this.videoService.getNumberOfVideoByUserName(userName).subscribe(response => {
+      this.numberOfVideos = response.data
+    })
+  }
+  getUserNameByToken(userName:string){
+    this.profileService.getUserNameByToken().subscribe(response=>{
+      if (response.data==userName) {
+        this.kendisiMi=true;
+      }else{
+        this.kendisiMi=false;
+      }
 
-})
-  }
-  getNumberOfVideoByUserName(userName:string){
-  this.videoService.getNumberOfVideoByUserName(userName).subscribe(response=>{
-    this.numberOfVideos=response.data
-  })
+    })
   }
 }

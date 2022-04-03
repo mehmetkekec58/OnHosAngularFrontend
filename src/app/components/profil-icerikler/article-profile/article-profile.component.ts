@@ -20,7 +20,7 @@ export class ArticleProfileComponent implements OnInit {
   getArticlesByUserName(userName: string) {
     this.articleService.getArticleByUserName(userName).subscribe(response => {
       this.articles = response.data
-      console.log(response.data)
+
     })
   }
 }

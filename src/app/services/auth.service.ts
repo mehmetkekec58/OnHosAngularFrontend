@@ -1,4 +1,3 @@
-import { ResponseModel } from './../models/responseModel';
 import { environment } from './../../environments/environment';
 import { SingleResponseModel } from './../models/singleResponseModel';
 import { HttpClient } from '@angular/common/http';
@@ -18,6 +17,6 @@ apiUrl = `${environment.apiUrl}Auth/`
    return this.httpClient.post<SingleResponseModel<TokenModel>>(`${this.apiUrl}login`,loginModel)
   }
   register(registerModel:RegisterModel){
-    return this.httpClient.post<ResponseModel>(`${this.apiUrl}register`,registerModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(`${this.apiUrl}register`,registerModel);
   }
 }

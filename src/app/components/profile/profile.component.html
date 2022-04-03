@@ -3,7 +3,7 @@
 
 
     <div class="card-body little-profile text-center">
-      <div class="pro-img"><img src={{profileDetails.profilePhoto.url}} alt="user">
+      <div class="pro-img"><img src={{profileDetails.profilePhoto.url}}  alt="user">
       </div>
       <h3>
         <mat-card-title>{{profileDetails.firstName}} {{profileDetails.lastName}} <mat-icon class="verify-icon">verified_user</mat-icon></mat-card-title>
@@ -13,12 +13,12 @@
 
       </h3>
       <p>{{branch.branchName}}</p>
-      <div class="example-button-row">
-        <button mat-raised-button color="accent">Takip Et</button>
-        <button mat-raised-button color="accent">
+      <div class="example-button-row" *ngIf="isLoading==true">
+        <button *ngIf="isLoading==true && kendisiMi==false" mat-raised-button color="accent">Takip Et</button>
+        <button *ngIf="isLoading==true && kendisiMi==false" mat-raised-button color="accent">
           <mat-icon>question_answer</mat-icon> Soru Sor
         </button>
-        <button routerLink="../update" mat-raised-button color="accent">Profili Düzenle</button>
+        <button *ngIf="isLoading==true && kendisiMi==true" routerLink="../update" mat-raised-button color="accent">Profili Düzenle</button>
       </div>
       <div class="row text-center m-t-20">
         <div class="col-lg-4 col-md-4 m-t-20">
@@ -65,8 +65,8 @@
 <h1 style="text-align: center;" *ngIf="isThereUser == false"><app-page-not-found message={{hataMessage}}></app-page-not-found></h1>
 </div>
 
-<div class="mmm" *ngIf="isLoading==false">
+<div class="yukleniyor" *ngIf="isLoading==false">
   <div class="spinner-border text-warning" role="status">
-    <span class="visually-hidden">Yükleniyor...</span>
+
   </div>
 </div>

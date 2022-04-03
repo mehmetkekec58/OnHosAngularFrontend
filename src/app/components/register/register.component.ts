@@ -34,9 +34,9 @@ export class RegisterComponent implements OnInit {
 
   this.authService.register(registerModel).subscribe(response=>{
     this.openSnackBar("Kayıt Olundu")
-console.log(response.message)
+console.log(response)
   }, responseError=>{
-    this.openSnackBar("Kayıt olma başarısız: "+responseError.error.message)
+    this.openSnackBar("Kayıt olma başarısız: "+responseError.error)
 console.log(responseError.error.message)
 
   })

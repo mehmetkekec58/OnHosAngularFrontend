@@ -1,3 +1,4 @@
+import { PurseComponent } from './components/purse/purse.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -11,6 +12,7 @@ import { ProfileUpdateComponent } from './components/profile-update/profile-upda
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 const routes: Routes = [
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:"chat/:userName", component:ChatComponent},
   {path:"history", component:HistoryComponent},
   {path:"pay", component:PayComponent},
-  {path:"readlist", component:OkumaListesiComponent}
+  {path:"readlist", component:OkumaListesiComponent},
+  {path:"settings", component:SettingsComponent},
+  {path:"purse", component:PurseComponent},
 ];
 
 @NgModule({

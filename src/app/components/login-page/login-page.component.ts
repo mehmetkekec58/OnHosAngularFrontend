@@ -1,9 +1,9 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LocalStorageService } from './../../services/local-storage.service';
 import { AuthService } from './../../services/auth.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup,FormControl,FormBuilder, Validators  } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormBuilder, Validators  } from '@angular/forms';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -27,16 +27,16 @@ export class LoginPageComponent implements OnInit {
   }
    login(){
     if(this.loginForm.valid){
-      console.log(this.loginForm.value)
+      //console.log(this.loginForm.value)
       let loginModel=Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response=>{
         this.localStorageService.setLocalStorageToken(response.data.token)
         this.localStorageService.setLocalStorage("bitisSuresi",response.data.expiration)
-      this.router.navigateByUrl("/")
+        window.location.reload();
       }, responseError=>{
- console.log(responseError.error.message)
-
+ //console.log(responseError.error.message)
+this.openSnackBar(responseError.error.message)
       })
           }
   }

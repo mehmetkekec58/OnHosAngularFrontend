@@ -11,6 +11,8 @@ export class LocalStorageService {
   }
   deleteLocalStorageToken(){
     localStorage.removeItem("token");
+    localStorage.removeItem("bitisSuresi");
+
   }
   setLocalStorageToken(token:string){
     localStorage.setItem("token",token);

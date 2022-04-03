@@ -1,10 +1,55 @@
-<mat-sidenav-container   class="sidenav-container ">
+<mat-sidenav-container class="sidenav-container ">
 
-  <mat-sidenav  style="background-color:white;" #drawer class="sidenav" fixedInViewport [attr.role]="'dialog'"
+  <mat-sidenav style="background-color:white;" #drawer class="sidenav" fixedInViewport [attr.role]="'dialog'"
     [mode]="'side'" [opened]="$drawer==true">
 
-<app-drawer-menu-list></app-drawer-menu-list>
 
+    <mat-nav-list *ngIf="isLogin==true">
+      <a mat-list-item routerLink="/">
+        <mat-icon class="OnHosDrawerMenuIcon">home</mat-icon> <span class="OnHosDrawerMenuYazi">Anasayfa</span>
+      </a>
+
+      <a *ngIf="yetkiliMi==true" mat-list-item routerLink="/profile/{{userName}}">
+        <mat-icon class="OnHosDrawerMenuIcon">perm_identity</mat-icon> <span class="OnHosDrawerMenuYazi">Profil</span>
+      </a>
+
+      <a *ngIf="yetkiliMi==false" mat-list-item routerLink="/profile/update">
+        <mat-icon class="OnHosDrawerMenuIcon">perm_identity</mat-icon> <span class="OnHosDrawerMenuYazi">Profili
+          Güncelle</span>
+      </a>
+      <a *ngIf="yetkiliMi==true" mat-list-item routerLink="/purse">
+        <mat-icon class="OnHosDrawerMenuIcon">payment</mat-icon> <span class="OnHosDrawerMenuYazi">Cüzdan</span>
+      </a>
+      <a mat-list-item routerLink="/pay">
+        <mat-icon class="OnHosDrawerMenuIcon">add_circle_outline</mat-icon> <span class="OnHosDrawerMenuYazi">Para
+          Yükle</span>
+      </a>
+      <a mat-list-item routerLink="/history">
+        <mat-icon class="OnHosDrawerMenuIcon">history</mat-icon> <span class="OnHosDrawerMenuYazi">Geçmiş</span>
+      </a>
+      <a mat-list-item routerLink="/readlist">
+        <mat-icon class="OnHosDrawerMenuIcon">description</mat-icon> <span class="OnHosDrawerMenuYazi">Okuma
+          Listesi</span>
+      </a>
+      <a mat-list-item href="#">
+        <mat-icon class="OnHosDrawerMenuIcon">settings</mat-icon> <span class="OnHosDrawerMenuYazi">Ayarlar</span>
+      </a>
+      <a mat-list-item (click)="cikisYap()">
+        <mat-icon class="OnHosDrawerMenuIcon">exit_to_app</mat-icon> <span class="OnHosDrawerMenuYazi">Çıkış Yap</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list *ngIf="isLogin==false">
+      <a mat-list-item routerLink="/">
+        <mat-icon class="OnHosDrawerMenuIcon">home</mat-icon> <span class="OnHosDrawerMenuYazi">Anasayfa</span>
+      </a>
+      <a mat-list-item routerLink="/">
+        <mat-icon class="OnHosDrawerMenuIcon">share</mat-icon> <span class="OnHosDrawerMenuYazi">Paylaş</span>
+      </a>
+      <a mat-list-item routerLink="/">
+        <mat-icon class="OnHosDrawerMenuIcon">info</mat-icon> <span class="OnHosDrawerMenuYazi">Hakkımızda</span>
+      </a>
+    </mat-nav-list>
 
   </mat-sidenav>
   <mat-sidenav-content class="ff">
@@ -14,45 +59,50 @@
       <span routerLink="/" class="OnHosYazi">OnHos</span>
       <span class="example-spacer"></span>
 
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<div class="container">
-    <br/>
-	<div class="row justify-content-center" *ngIf="$arama==true">
-                        <div class="col-12 col-md-10 col-lg-8">
-                            <form class="card card-sm bb">
-                                <div class="card-body row no-gutters align-items-center">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+      <div class="container">
+        <br />
+        <div class="row justify-content-center" *ngIf="$arama==true">
+          <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm bb">
+              <div class="card-body row no-gutters align-items-center">
 
 
-                                  <div class="col-auto">
-                                    <i (click)="aramaIcon()" class="text-body search-close-icon"><mat-icon class="search-close-icon">close</mat-icon></i>
-                                </div>
-                                    <!--end of col-->
-                                    <div class="col">
+                <div class="col-auto">
+                  <i (click)="aramaIcon()" class="text-body search-close-icon">
+                    <mat-icon class="search-close-icon">close</mat-icon>
+                  </i>
+                </div>
 
-                                       <app-search></app-search>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto">
-                                        <button mat-raised-button color="accent" type="submit"><mat-icon>search</mat-icon></button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
+                <div class="col">
+
+                  <app-search></app-search>
+                </div>
+
+                <div class="col-auto">
+                  <button mat-raised-button color="accent" type="submit">
+                    <mat-icon>search</mat-icon>
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
 
       <div class="example-button-row">
 
-        <button *ngIf="$arama==false" (click)="aramaIcon()" mat-raised-button  color="accent">
+        <button *ngIf="$arama==false" (click)="aramaIcon()" mat-raised-button color="accent">
           <mat-icon>search</mat-icon>
         </button>
-        <button *ngIf="isLogin==true" mat-raised-button  color="accent">
+        <button *ngIf="isLogin==true" mat-raised-button color="accent">
           <mat-icon>attach_money</mat-icon> <span style="font-size: large;">20</span>
         </button>
         <button *ngIf="isLogin==false" mat-raised-button routerLink="/login" color="accent">Giriş Yap</button>
-        <button  *ngIf="isLogin==false" mat-raised-button routerLink="/register" color="accent">Kaydol</button>
+        <button *ngIf="isLogin==false" mat-raised-button routerLink="/register" color="accent">Kaydol</button>
 
       </div>
     </mat-toolbar>
