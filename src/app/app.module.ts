@@ -49,6 +49,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileUpdateUserComponent } from './components/profile-update-user/profile-update-user.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PurseComponent } from './components/purse/purse.component';
+import { OnlineStatusModule } from 'ngx-online-status';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,6 +103,7 @@ import { PurseComponent } from './components/purse/purse.component';
     MatSnackBarModule,
     MatAutocompleteModule,
     MatInputModule,
+    OnlineStatusModule,
 
   ],
   providers: [

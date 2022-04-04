@@ -1,5 +1,5 @@
 export interface AboutModel{
   id:number;
-  aboutMe:string;
+  aboutMe?:string;
   userName:string;
 }

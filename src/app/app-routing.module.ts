@@ -33,6 +33,8 @@ const routes: Routes = [
   {path:"readlist", component:OkumaListesiComponent},
   {path:"settings", component:SettingsComponent},
   {path:"purse", component:PurseComponent},
+  {path:"video/:id", component:PurseComponent},
+  {path:"post/:id", component:PurseComponent},
 ];
 
 @NgModule({

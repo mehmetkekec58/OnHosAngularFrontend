@@ -43,7 +43,7 @@
       <a mat-list-item routerLink="/">
         <mat-icon class="OnHosDrawerMenuIcon">home</mat-icon> <span class="OnHosDrawerMenuYazi">Anasayfa</span>
       </a>
-      <a mat-list-item routerLink="/">
+      <a mat-list-item (click)="shareButton()">
         <mat-icon class="OnHosDrawerMenuIcon">share</mat-icon> <span class="OnHosDrawerMenuYazi">Paylaş</span>
       </a>
       <a mat-list-item routerLink="/">
@@ -98,7 +98,7 @@
         <button *ngIf="$arama==false" (click)="aramaIcon()" mat-raised-button color="accent">
           <mat-icon>search</mat-icon>
         </button>
-        <button *ngIf="isLogin==true" mat-raised-button color="accent">
+        <button routerLink="pay" *ngIf="isLogin==true" mat-raised-button color="accent">
           <mat-icon>attach_money</mat-icon> <span style="font-size: large;">20</span>
         </button>
         <button *ngIf="isLogin==false" mat-raised-button routerLink="/login" color="accent">Giriş Yap</button>

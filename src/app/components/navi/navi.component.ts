@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from './../../../environments/environment';
 import { ProfileService } from './../../services/profile.service';
 import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +20,7 @@ $arama:boolean=false;
 userName="";
 yetkiliMi=false;
 
-  constructor( private localStorageService:LocalStorageService, private profileService:ProfileService) {
+  constructor( private localStorageService:LocalStorageService, private profileService:ProfileService, private snackBar:MatSnackBar) {
   }
   ngOnInit(): void {
     this.girisYaptiMi()
@@ -53,6 +55,15 @@ getUserName(){
     })
   }
 
+}
+shareButton(){
+   navigator.clipboard.writeText(environment.domain);
+  this.openSnackBar("Link panoya kopyalandı")
+}
+openSnackBar(metin: string) {
+  this.snackBar.open(metin, "Tamam", {
+    duration: 5 * 1000,
+  });
 }
 }
 

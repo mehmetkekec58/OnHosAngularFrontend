@@ -16,4 +16,12 @@ overflow-x: hidden;
 
 
 }
+p{
 
+}
+.date{
+  background-color: antiquewhite;
+}
+.aktif{
+  color:blue;
+}

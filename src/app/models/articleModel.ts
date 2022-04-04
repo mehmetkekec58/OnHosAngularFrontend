@@ -3,7 +3,7 @@ export interface ArticleModel{
   userName:string;
   title:string;
   text:string;
-  categoryId:number;
+  categoryId?:number;
   publishDate?:Date;
   editDate?:Date;
 }

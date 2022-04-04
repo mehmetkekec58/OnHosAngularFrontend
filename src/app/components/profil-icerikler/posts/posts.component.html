@@ -1,109 +1,28 @@
 <div class="article-scroll-right">
   <div class="row pt-1 mt-30">
-  <div class="col-lg-4 col-sm-6 mb-30 pb-5 ">
-<mat-card class="example-card card">
+
+<div class="col-lg-4 col-sm-6 mb-30 pb-5 " *ngFor="let post of posts">
+<mat-card class="example-card card" >
 
   <mat-card-header>
-    <div mat-card-avatar style="background-image: url('https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg');
-    background-size: cover;"></div>
-    <mat-card-title>Hasan Ülker <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
-    <mat-card-subtitle>Kalp Damar Hastalıkları Uzmanı</mat-card-subtitle>
+    <img  mat-card-avatar src={{profileDetails.profilePhoto.url}}/>
+    <mat-card-title>{{profileDetails.firstName}} {{profileDetails.lastName}}<mat-icon class="verify-icon">
+        verified_user</mat-icon>
+    </mat-card-title>
+    <mat-card-subtitle>@{{profileDetails.userName}} / {{branch}}</mat-card-subtitle>
   </mat-card-header>
 
-  <img mat-card-image="matCardImageSmall" src="http://drmustafasener.com/2018/10/kanser-hucresi-vucutta-nasil-beslenir.jpeg" alt="Photo of a Shiba Inu">
+  <img *ngIf="post.image != null" mat-card-image="matCardImageSmall" src={{post.image}}? alt="Photo of a Shiba Inu">
   <mat-card-content>
 
-    <div style="text-align: center;">
-      <h3 style="font-weight: bold;">Kanser</h3>
-    </div>
+
     <p>
-      Kelime anlamı olarak kanser, bir organ veya dokudaki hücrelerin düzensiz olarak bölünüp çoğalmasıyla beliren kötü urlara denir. Genel anlamda ise kanser vücudumuzun çeşitli bölgelerindeki hücrelerin kontrolsüz çoğalması ile oluşan 100'den fazla hastalık grubudur. Çok çeşitli kanser tipleri olmasına rağmen, hepsi anormal hücrelerin kontrol dışı çoğalması ile başlar. Tedavi edilmez ise ciddi rahatsızlıklara, hatta ölüme dahi neden olabilir
+     {{post.text}}
     </p>
+    <span class="date">{{post.date}}</span>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>READ</button>
-
-  </mat-card-actions>
-</mat-card>
-</div>
-<div class="col-lg-4 col-sm-6 mb-30 pb-5 ">
-<mat-card class="example-card card">
-  <mat-card-header>
-    <div mat-card-avatar style="background-image: url('https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg');
-    background-size: cover;"></div>
-    <mat-card-title>Hasan Ülker <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
-    <mat-card-subtitle>Kalp Damar Hastalıkları Uzmanı</mat-card-subtitle>
-  </mat-card-header>
-
-  <img mat-card-image="matCardImageSmall" src="http://drmustafasener.com/2018/10/kanser-hucresi-vucutta-nasil-beslenir.jpeg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-
-    <div style="text-align: center;">
-      <h3 style="font-weight: bold;">Kanser</h3>
-    </div>
-    <p>
-      Kelime anlamı olarak kanser, bir organ veya dokudaki hücrelerin düzensiz olarak bölünüp çoğalmasıyla beliren kötü urlara denir. Genel anlamda ise kanser vücudumuzun çeşitli bölgelerindeki hücrelerin kontrolsüz çoğalması ile oluşan 100'den fazla hastalık grubudur. Çok çeşitli kanser tipleri olmasına rağmen, hepsi anormal hücrelerin kontrol dışı çoğalması ile başlar. Tedavi edilmez ise ciddi rahatsızlıklara, hatta ölüme dahi neden olabilir
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>READ</button>
-
-  </mat-card-actions>
-</mat-card>
-</div>
-
-<div class="col-lg-4 col-sm-6 mb-30 pb-5 ">
-<mat-card class="example-card card">
-
-  <mat-card-header>
-    <div mat-card-avatar style="background-image: url('https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg');
-    background-size: cover;"></div>
-    <mat-card-title>Hasan Ülker <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
-    <mat-card-subtitle>Kalp Damar Hastalıkları Uzmanı</mat-card-subtitle>
-  </mat-card-header>
-
-  <img mat-card-image="matCardImageSmall" src="http://drmustafasener.com/2018/10/kanser-hucresi-vucutta-nasil-beslenir.jpeg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-
-    <div style="text-align: center;">
-      <h3 style="font-weight: bold;">Kanser</h3>
-    </div>
-    <p>
-      Kelime anlamı olarak kanser, bir organ veya dokudaki hücrelerin düzensiz olarak bölünüp çoğalmasıyla beliren kötü urlara denir. Genel anlamda ise kanser vücudumuzun çeşitli bölgelerindeki hücrelerin kontrolsüz çoğalması ile oluşan 100'den fazla hastalık grubudur. Çok çeşitli kanser tipleri olmasına rağmen, hepsi anormal hücrelerin kontrol dışı çoğalması ile başlar. Tedavi edilmez ise ciddi rahatsızlıklara, hatta ölüme dahi neden olabilir
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>READ</button>
-
-  </mat-card-actions>
-</mat-card>
-</div>
-<div class="col-lg-4 col-sm-6 mb-30 pb-5 ">
-<mat-card class="example-card card">
-
-  <mat-card-header>
-    <div mat-card-avatar style="background-image: url('https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg');
-    background-size: cover;"></div>
-    <mat-card-title>Hasan Ülker <mat-icon class="verify-icon">verified_user</mat-icon> </mat-card-title>
-    <mat-card-subtitle>Kalp Damar Hastalıkları Uzmanı</mat-card-subtitle>
-  </mat-card-header>
-
-  <img mat-card-image="matCardImageSmall" src="http://drmustafasener.com/2018/10/kanser-hucresi-vucutta-nasil-beslenir.jpeg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-
-    <div style="text-align: center;">
-      <h3 style="font-weight: bold;">Kanser</h3>
-    </div>
-    <p>
-      Kelime anlamı olarak kanser, bir organ veya dokudaki hücrelerin düzensiz olarak bölünüp çoğalmasıyla beliren kötü urlara denir. Genel anlamda ise kanser vücudumuzun çeşitli bölgelerindeki hücrelerin kontrolsüz çoğalması ile oluşan 100'den fazla hastalık grubudur. Çok çeşitli kanser tipleri olmasına rağmen, hepsi anormal hücrelerin kontrol dışı çoğalması ile başlar. Tedavi edilmez ise ciddi rahatsızlıklara, hatta ölüme dahi neden olabilir
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button><mat-icon>thumb_up</mat-icon> 2 B</button>
-    <button mat-button><mat-icon>thumb_down</mat-icon> </button>
+    <button mat-button><mat-icon class="aktif">thumb_up</mat-icon> {{like}}</button>
     <button mat-button><mat-icon>share</mat-icon></button>
 
   </mat-card-actions>

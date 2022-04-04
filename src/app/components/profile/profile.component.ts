@@ -1,3 +1,4 @@
+import { PostModel } from 'src/app/models/postModel';
 import { LocalStorageService } from './../../services/local-storage.service';
 import { VideoService } from './../../services/video.service';
 import { BranchService } from './../../services/branch.service';
@@ -11,6 +12,7 @@ import { ProfileDetailModel } from 'src/app/models/profileDetailModel';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BranchModel } from 'src/app/models/branchModel';
+import { FollowModel } from 'src/app/models/followModel';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +30,10 @@ export class ProfileComponent implements OnInit {
   branch: BranchModel = { id: 0, userName: "", branchName: "" };
   isLoading: boolean = false;
   kendisiMi: boolean = false;
-  constructor(private videoService: VideoService,private localStorageService:LocalStorageService, private branchService: BranchService, private profileService: ProfileService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, private followService: FollowService, private articleService: ArticleService) {
+  areYouFollow: boolean = false;
+  followModel:FollowModel={id:0,takipEden:"", takipEdilen:""};
+
+  constructor(private videoService: VideoService, private localStorageService: LocalStorageService, private branchService: BranchService, private profileService: ProfileService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, private followService: FollowService, private articleService: ArticleService) {
 
 
   }
@@ -41,7 +46,7 @@ export class ProfileComponent implements OnInit {
 
     })
   }
-   getProfileDetailsByUserName(userName: string) {
+  getProfileDetailsByUserName(userName: string) {
     this.profileService.getProfileDetailsByUserName(userName).subscribe(response => {
       if (response.success === true) {
         this.profileDetails = response.data;
@@ -50,6 +55,7 @@ export class ProfileComponent implements OnInit {
         this.getNumberOfVideoByUserName(userName);
         if (this.localStorageService.isThereToken()) {
           this.getUserNameByToken(userName)
+          this.isFollow(userName);
         }
         this.getBranchByUserName(userName);
 
@@ -68,9 +74,16 @@ export class ProfileComponent implements OnInit {
   }
 
   openSnackBar(veri: string, metin: string) {
-    this.snackBar.open(`${veri} ${metin}`, "Tamam", {
-      duration: 5 * 1000,
-    });
+
+    if (metin == undefined) {
+      this.snackBar.open(`Bir şeyler yanlış gitti`, "Tamam", {
+        duration: 5 * 1000,
+      });
+    } else {
+      this.snackBar.open(`${veri} ${metin}`, "Tamam", {
+        duration: 5 * 1000,
+      });
+    }
   }
 
   getNumberOfFollowersByUserName(userName: string) {
@@ -98,12 +111,48 @@ export class ProfileComponent implements OnInit {
       this.numberOfVideos = response.data
     })
   }
-  getUserNameByToken(userName:string){
-    this.profileService.getUserNameByToken().subscribe(response=>{
-      if (response.data==userName) {
-        this.kendisiMi=true;
+  getUserNameByToken(userName: string) {
+    this.profileService.getUserNameByToken().subscribe(response => {
+      if (response.data == userName) {
+        this.kendisiMi = true;
+      } else {
+        this.kendisiMi = false;
+      }
+
+    })
+  }
+  follow(userName: string) {
+
+this.followService.follow(userName).subscribe(res=>{
+  if (res.success) {
+    this.areYouFollow=true;
+    this.numberOfFollowers +=1;
+    this.openSnackBar(userName," takip edildi.")
+  }else{
+    this.openSnackBar(userName," takip etme başarısız")
+  }
+})
+  }
+  unfollow(userName: string) {
+
+
+this.followService.unfollow(userName).subscribe(res=>{
+  if (res.success) {
+     this.areYouFollow=false;
+     this.numberOfFollowers -=1;
+    this.openSnackBar(userName," takipten çıkarıldı.");
+  }else{
+    this.openSnackBar(userName," takipten çıkma başarısız.");
+  }
+})
+  }
+  isFollow(userName: string) {
+    this.followService.onuTakipEdiyorMusun(userName).subscribe(res => {
+      if (res.data!=null) {
+        this.areYouFollow = true;
+        this.followModel=res.data;
       }else{
-        this.kendisiMi=false;
+        this.areYouFollow=false;
       }
 
     })

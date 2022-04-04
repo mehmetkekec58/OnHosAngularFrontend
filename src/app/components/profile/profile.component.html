@@ -14,9 +14,10 @@
       </h3>
       <p>{{branch.branchName}}</p>
       <div class="example-button-row" *ngIf="isLoading==true">
-        <button *ngIf="isLoading==true && kendisiMi==false" mat-raised-button color="accent">Takip Et</button>
+        <button *ngIf="isLoading==true && kendisiMi==false && areYouFollow==false" (click)="follow(profileDetails.userName)" mat-raised-button color="accent">Takip Et</button>
+        <button *ngIf="isLoading==true && kendisiMi==false && areYouFollow==true" (click)="unfollow(profileDetails.userName)" mat-raised-button color="warn">Takibi Bırak</button>
         <button *ngIf="isLoading==true && kendisiMi==false" mat-raised-button color="accent">
-          <mat-icon>question_answer</mat-icon> Soru Sor
+          <mat-icon>question_answer</mat-icon> Soru Sor (<mat-icon>attach_money</mat-icon>10)
         </button>
         <button *ngIf="isLoading==true && kendisiMi==true" routerLink="../update" mat-raised-button color="accent">Profili Düzenle</button>
       </div>
@@ -39,7 +40,7 @@
           <mat-icon class="example-tab-icon">thumb_up</mat-icon>
           Gönderiler
         </ng-template>
-        <app-posts></app-posts>
+        <app-posts [profileDetails]="profileDetails" branch={{branch.branchName}}></app-posts>
       </mat-tab>
       <mat-tab label="Yazılar">
         <ng-template mat-tab-label>
