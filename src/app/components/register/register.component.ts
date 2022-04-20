@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     if(this.registerForm.valid){
-      console.log(this.registerForm.value)
+     
       let registerModel=Object.assign({}, this.registerForm.value)
 
   this.authService.register(registerModel).subscribe(response=>{
