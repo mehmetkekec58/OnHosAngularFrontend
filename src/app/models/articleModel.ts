@@ -3,7 +3,9 @@ export interface ArticleModel{
   userName:string;
   title:string;
   text:string;
+  imageUrl?:string;
   categoryId?:number;
   publishDate?:Date;
   editDate?:Date;
+  file?:File;
 }
