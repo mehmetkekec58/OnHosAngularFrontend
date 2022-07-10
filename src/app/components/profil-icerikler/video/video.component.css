@@ -4,4 +4,10 @@ div.article-scroll-right{
   .verify-icon{
     color:  blue;
   }
-
+.video{
+  height: 300px;
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  object-fit: cover;
+}
