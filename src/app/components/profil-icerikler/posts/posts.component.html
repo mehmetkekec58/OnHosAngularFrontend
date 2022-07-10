@@ -1,7 +1,7 @@
 <div class="article-scroll-right">
   <div class="row pt-1 mt-30">
 
-<div class="col-lg-4 col-sm-6 mb-30 pb-5 " *ngFor="let post of posts">
+<div class="col-lg-3  pb-5 " *ngFor="let post of posts">
 <mat-card class="example-card card" >
 
   <mat-card-header>
@@ -14,7 +14,6 @@
 
   <img *ngIf="post.image != null" mat-card-image="matCardImageSmall" src={{post.image}}? alt="Photo of a Shiba Inu">
   <mat-card-content>
-
 
     <p>
      {{post.text}}
