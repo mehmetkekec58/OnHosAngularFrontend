@@ -4,6 +4,7 @@ import { ProfileDetailModel } from 'src/app/models/profileDetailModel';
 import { VideoService } from './../../../services/video.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { VideoDtoModel } from 'src/app/models/videoModelDto';
+import { VideoModel } from 'src/app/models/videoModel';
 
 @Component({
   selector: 'app-video',
@@ -12,7 +13,7 @@ import { VideoDtoModel } from 'src/app/models/videoModelDto';
 })
 export class VideoComponent implements OnInit {
   domain = environment.domain;
-videos:VideoDtoModel[]=[]
+videos:VideoModel[]=[]
 like:number=2000;
 link:string="";
 
@@ -25,10 +26,6 @@ link:string="";
 getAllByUserName(userName:string){
   this.videoService.getAllByUserName(userName).subscribe(response=>{
   this.videos=response.data
-  for (let i = 0; i < response.data.length; i++) {
-   this.videos[i].tags=response.data[i].tag.split(",");
-
-  }
   })
 }
 shareButton(videoId:number){

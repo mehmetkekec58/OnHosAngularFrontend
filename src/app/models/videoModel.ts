@@ -4,7 +4,6 @@ export interface VideoModel{
   title:string;
   text:string;
   videoUrl:string;
-  tag:string;
   categoryId:number;
   date:Date;
   kapakFoto:string;
