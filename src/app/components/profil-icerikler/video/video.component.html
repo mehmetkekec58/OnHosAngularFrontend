@@ -10,7 +10,7 @@
   </mat-card-header>
 
 
-  <video mat-card-image="matCardImageSmall" controls controlsList="nodownload" poster={{video.kapakFoto}}>
+  <video mat-card-image="matCardImageSmall" controls controlsList="nodownload" class="video" poster={{video.kapakFoto}}>
     <source src={{video.videoUrl}} type="video/mp4">
   Your browser does not support the video tag.
   </video>
@@ -20,21 +20,14 @@
       <h3 style="font-weight: bold;">{{video.title}}</h3>
     </div>
     <p>
-     {{video.text}}  </p>
+     {{video.text | slice:0:140}}...  </p>
     <div>
-    <span style="margin-left: 5px;"><b>Etiketler:</b></span>
-    <mat-chip-list aria-label="Dog selection">
-      <mat-chip *ngFor="let tag of video.tags">
 
-       {{tag}}
-      </mat-chip>
-
-    </mat-chip-list>
   </div>
   </mat-card-content>
   <mat-card-actions>
 
-    <button mat-button><mat-icon>thumb_up</mat-icon> {{like}}</button>
+
     <button mat-button (click)="shareButton(video.id)"><mat-icon>share</mat-icon> </button>
 
   </mat-card-actions>
