@@ -11,7 +11,7 @@ import { ClaimModel } from '../models/claimModel';
   providedIn: 'root'
 })
 export class ProfileService {
-  apiUrl = `${environment.apiUrl}Users/`;
+  private apiUrl = `${environment.apiUrl}Users/`;
   constructor(private httpClient: HttpClient) { }
 
   getProfileDetailsByUserName(userName: string) {

@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ArticleService {
-  apiUrl = `${environment.apiUrl}Articles/`
+  private  apiUrl = `${environment.apiUrl}Articles/`
   constructor(private httpClient: HttpClient) { }
 
   getArticleByUserName(userName:string){

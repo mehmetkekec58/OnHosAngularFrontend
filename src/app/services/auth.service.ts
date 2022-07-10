@@ -10,7 +10,7 @@ import { RegisterModel } from '../models/registerModel';
   providedIn: 'root'
 })
 export class AuthService {
-apiUrl = `${environment.apiUrl}Auth/`
+  private apiUrl = `${environment.apiUrl}Auth/`
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel:LoginModel){

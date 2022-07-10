@@ -9,7 +9,7 @@ import { FollowModel } from '../models/followModel';
   providedIn: 'root'
 })
 export class FollowService {
-  apiUrl = `${environment.apiUrl}Follows/`
+  private apiUrl = `${environment.apiUrl}Follows/`
   constructor(private httpClient: HttpClient) { }
 
   getNumberOfFollowersByUserName(userName: string) {

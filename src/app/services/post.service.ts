@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PostService {
-apiUrl = `${environment.apiUrl}Posts/`
+  private apiUrl = `${environment.apiUrl}Posts/`
   constructor(private httpClient:HttpClient) { }
 
   getAllPostByUserName(userName:string){

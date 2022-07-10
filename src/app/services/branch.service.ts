@@ -9,7 +9,7 @@ import { BranchModel } from '../models/branchModel';
   providedIn: 'root'
 })
 export class BranchService {
-apiUrl=`${environment.apiUrl}Branches/`
+  private apiUrl=`${environment.apiUrl}Branches/`
   constructor(private httpClient:HttpClient) { }
 
   getBranchByUserName(userName:string){

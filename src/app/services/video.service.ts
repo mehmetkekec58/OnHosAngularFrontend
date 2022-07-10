@@ -9,7 +9,7 @@ import { VideoModel } from '../models/videoModel';
   providedIn: 'root'
 })
 export class VideoService {
-  apiUrl = `${environment.apiUrl}Videos/`;
+  private apiUrl = `${environment.apiUrl}Videos/`;
   constructor(private httpClient:HttpClient) { }
 
   getNumberOfVideoByUserName(userName:string){
